@@ -12,7 +12,7 @@ def read_fastq_gz(fp):#this code read *.fastq.gz file
                 if l[0] == '@' and len(seq) <= len(qual): #fastq qual long enough
                         if seq != '' and len(seq) == len(qual):#good quality to produce
                                 yield name, (seq, qual)
-                        name = l[: -1]#remove \n, then start a new one
+                        name = l[1: -1]#remove \n, then start a new one
                         seq, qual = '', ''
                         seq_bool, qual_bool = True, False
                         continue
